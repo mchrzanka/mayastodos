@@ -1,0 +1,52 @@
+[
+	{
+		"id": "au65d12n",
+		"category": "homework",
+		"title": "Complete Javascript assignment",
+		"isComplete": true,
+		"startDate": "Wednesday September 5th",
+		"startTime": "9:00am",
+		"endDate": "Wednesday September 5th",
+		"endTime": "8:00pm"
+	},
+	{
+		"id": "gb45f53k",
+		"category": "friends",
+		"title": "Help Kate take care of Nugget",
+		"isComplete": true,
+		"startDate": "Thursday September 6th",
+		"startTime": "9:00am",
+		"endDate": "Friday September 7th",
+		"endTime": "8:00pm"
+	},
+	{
+		"id": "hw78f20t",
+		"category": "family",
+		"title": "Hang out with Mom",
+		"isComplete": true,
+		"startDate": "Saturday September 8th",
+		"startTime": "9:00am",
+		"endDate": "Saturday September 8th",
+		"endTime": "3:00pm"
+	},
+	{
+		"id": "yt34g45v",
+		"category": "health",
+		"title": "Pysiotherapy",
+		"isComplete": false,
+		"startDate": "Monday September 10th",
+		"startTime": "1:00pm",
+		"endDate": "Monday September 10th",
+		"endTime": "2:00pm"
+	},
+	{
+		"id": "gh55r72v",
+		"category": "home",
+		"title": "Clean the upstairs bathroom",
+		"isComplete": false,
+		"startDate": "Tuesday September 11th",
+		"startTime": "5:00pm",
+		"endDate": "Tuesday September 11th",
+		"endTime": "5:30pm"
+	}
+]

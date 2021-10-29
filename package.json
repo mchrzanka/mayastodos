@@ -1,0 +1,21 @@
+{
+	"name": "practical-1",
+	"source": "src/index.html",
+	"version": "1.0.0",
+	"description": "",
+	"default": "src/index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"static": "npx gulp",
+		"start": "npm run static && npx parcel src/index.html",
+		"build": "npm run static && npx parcel build src/index.html"
+	},
+	"author": "Maya C",
+	"license": "ISC",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"http-server": "^14.0.0",
+		"parcel": "^2.0.0",
+		"sass": "^1.43.4"
+	}
+}
