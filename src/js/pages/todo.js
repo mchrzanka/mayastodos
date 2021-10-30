@@ -8,14 +8,23 @@ import todosUlList from '../components/cards/todolist';
 import { todo } from '../components/cards/todoItem';
 import { getStore } from '../store/store';
 
+//router for navigating edits and deletes
+import Router from '../routes/router';
+
 //Display the todo list on the todo page.
 const todoPage = function () {
 	const page = document.createElement('div');
 	page.className = 'container';
+
 	//add the todo ul component
 	const listContainer = todosUlList();
-
 	const todoList = getStore();
+
+	//event handler to delete. We grab the id of the todo item.
+	function onDeleteTodo(e) {
+		const todoId = { id: e.currentTarget.dataset.key };
+		Router('/delete', todoId);
+	}
 
 	//header ui
 	const header = document.createElement('header');
@@ -34,6 +43,7 @@ const todoPage = function () {
 		// take the ul from todolist.js and insert the li items into it.
 		const ul = listContainer.querySelector('#todos');
 		elements.forEach((item) => {
+			item.querySelector('#delete').addEventListener('click', onDeleteTodo);
 			ul.append(item);
 		});
 	}

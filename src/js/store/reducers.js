@@ -12,17 +12,22 @@ The store is our data. The reducer is the control between ui and data, and it ta
 
 import { getStore } from './store';
 
-const reducers = function ({ action, payload, ...rest }) {
+const reducer = function (action) {
 	switch (action.type) {
 		case 'add':
 			return 'add a todo';
 		case 'edit':
 			return 'edit a todo';
 		case 'delete':
-			return 'delete a todo';
+			const store = getStore();
+			const index = action.payload.index;
+			const newStoreState = [
+				...store.slice(0, index),
+				...store.slice(index + 1),
+			];
 		default:
 			return getStore();
 	}
 };
 
-export { reducers };
+export default reducer;
