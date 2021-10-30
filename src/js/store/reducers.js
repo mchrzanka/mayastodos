@@ -10,7 +10,7 @@ view       Control       model data
 The store is our data. The reducer is the control between ui and data, and it takes in an action (add, edit, delete) and a payload (data to perform the action). 
   */
 
-import { getStore } from './store';
+import { getStore, updateStore } from './store';
 
 const reducer = function (action) {
 	switch (action.type) {
@@ -25,6 +25,9 @@ const reducer = function (action) {
 				...store.slice(0, index),
 				...store.slice(index + 1),
 			];
+			updateStore(newStoreState);
+			action.cb();
+			return null;
 		default:
 			return getStore();
 	}

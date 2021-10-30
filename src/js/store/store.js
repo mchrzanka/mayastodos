@@ -16,4 +16,8 @@ const getStore = function () {
 	return store;
 };
 
-export { createStore, getStore };
+const updateStore = function (newStoreState) {
+	store = [...newStoreState];
+};
+
+export { createStore, getStore, updateStore };

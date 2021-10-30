@@ -32,9 +32,9 @@ const todoPage = function () {
 	div.className = 'add-button';
 	const h1 = todotitle('h1', 'todotitle');
 	const tag = tagline('p', 'todotagline');
-	const add = button('+', 'add-todo');
+	const add = button('Create New', 'add-todo');
 
-	//Check if there is any data. If there is, map it (creates a new array), and return each item places into an li from the todo function.
+	//Check if there is any data. If there is, map it (creates a new array), and return each item to be placed into an li from the todo function.
 	if (todoList.length !== 0) {
 		const elements = todoList.map((item) => {
 			return todo(item);

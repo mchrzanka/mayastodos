@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-	max-width: 100rem;
+	max-width: 55rem;
 	margin: 0 auto;
 	padding: 2rem;
 }
@@ -80,9 +80,19 @@ header div:hover {
 
 .add-todo {
 	border: 1px solid #463f3a;
-	border-radius: 0.8rem;
-	padding: 1rem 2rem;
-	font-size: 3.6rem;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	font-size: 2rem;
+	background-color: #f4f3ee;
+	color: #463f3a;
+	box-shadow: 0px 2px 8px #888888;
+}
+
+.add-todo:hover,
+.edit-button:hover,
+.delete-button:hover {
+	background-color: #e0afa0;
+	outline: none;
 }
 
 .todo-item {
@@ -122,4 +132,57 @@ header div:hover {
 
 .home {
 	background-color: #ddedea;
+}
+
+.todo-item div {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	padding: 3rem 0 2rem;
+}
+
+.delete-button {
+	border: none;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	background-color: #faa6a6;
+}
+
+.edit-button {
+	border: none;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	background-color: #afc8ec;
+}
+
+.delete-page {
+	text-align: center;
+}
+
+.delete-title {
+	font-size: 1.8rem;
+}
+
+.delete-page .delete-button {
+	margin-left: 2rem;
+	margin-top: 2rem;
+	font-size: 1.8rem;
+}
+
+.cancel-button {
+	border: none;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	background-color: #afc8ec;
+	font-size: 1.8rem;
+}
+
+@media screen and (min-width: 1100px) {
+	h1 {
+		font-size: 4.8rem;
+	}
+
+	.item-title {
+		font-size: 3rem;
+	}
 }

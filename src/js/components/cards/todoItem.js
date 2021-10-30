@@ -1,5 +1,4 @@
 import makeElement from '../../utils/makeElement';
-import button from '../ui/button';
 
 const todo = function ({ id, title, category, endDate, endTime, isComplete }) {
 	const template = `
@@ -8,9 +7,13 @@ const todo = function ({ id, title, category, endDate, endTime, isComplete }) {
         <p class="category ${category}">${category} Category</p>
         <p>Due: ${endDate}, ${endTime}</p>
         <p class="is-complete">${isComplete ? 'Completed' : ''}</p>
-        <p><button id="delete" data-key="${id}"> Delete </button></p>
+        <div>
+        <p><button class="edit-button" id="edit" data-key="${id}"> Edit </button></p>
+        <p><button class="delete-button" id="delete" data-key="${id}"> Delete </button></p>
+        </div>
     </li>
     `;
+
 	return makeElement(template);
 };
 

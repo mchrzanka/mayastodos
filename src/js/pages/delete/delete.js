@@ -7,9 +7,6 @@ import Router from '../../routes/router';
 import { getStore } from '../../store/store';
 import { todo } from '../../components/cards/todoItem';
 
-const cancelButton = button('Cancel', 'cancel-button');
-const deleteButton = button('Delete', 'delete-button');
-
 //sending in page properties
 const deletePage = function (props) {
 	// Clean Up Function
@@ -37,17 +34,22 @@ const deletePage = function (props) {
 		Router('/todoapp');
 	}
 
+	//Buttons
+	const cancelButton = button('Cancel', 'cancel-button');
+	const deleteButton = button('Delete', 'delete-button');
+	//Button Listeners
 	cancelButton.addEventListener('click', onCancelDelete);
 	deleteButton.addEventListener('click', onDeleteTodo);
 
 	const page = document.createElement('div');
 	page.className = 'container';
+	const div = document.createElement('div');
+	div.className = 'delete-page';
 	const header = document.createElement('header');
 	const h1 = todotitle('h1', 'todotitle');
 	const tag = tagline('p', 'todotagline');
 	let template = `
-        <h2 class="delete-title">Delete Employee</h2>
-        <p>Are you sure you'd like to delete?</p>
+        <h2 class="delete-title">Delete ToDo?</h2>
         `;
 
 	const deleteTemplate = makeElement(template);
@@ -55,9 +57,9 @@ const deletePage = function (props) {
 	page.append(header);
 	header.append(h1);
 	header.append(tag);
-	page.append(deleteTemplate);
-
-	page.append(cancelButton, deleteButton);
+	page.append(div);
+	div.append(deleteTemplate);
+	div.append(cancelButton, deleteButton);
 
 	return page;
 };
