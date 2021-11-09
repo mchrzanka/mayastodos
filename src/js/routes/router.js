@@ -7,6 +7,7 @@ const routes = {
 	'/': homePage,
 	'/todoapp': todoPage,
 	'/delete': deletePage,
+	'/*': notFound,
 };
 
 const Router = function (pathname, params = null) {
