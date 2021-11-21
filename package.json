@@ -8,7 +8,9 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"static": "npx gulp",
 		"start": "npm run static && npx parcel src/index.html",
-		"build": "npm run static && npx parcel build src/index.html"
+		"build": "npm run static && npx parcel build src/index.html",
+		"rimraf": "npm install rimraf",
+		"clean": "rimraf node_modules .parcel-cache"
 	},
 	"author": "Maya C",
 	"license": "ISC",
@@ -17,5 +19,8 @@
 		"http-server": "^14.0.0",
 		"parcel": "^2.0.0",
 		"sass": "^1.43.4"
+	},
+	"dependencies": {
+		"rimraf": "^3.0.2"
 	}
 }

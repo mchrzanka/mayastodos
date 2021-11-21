@@ -15,9 +15,48 @@ import { getStore, updateStore } from './store';
 const reducer = function (action) {
 	switch (action.type) {
 		case 'add':
-			return 'add a todo';
+			storeAdd = getStore();
+			newAddStore = [...storeAdd, action.payload];
+			updateStore(newAddStore);
+			action.cb();
+			return null;
+
 		case 'edit':
-			return 'edit a todo';
+			const editStore = getStore();
+			const editIndex = action.payload.index;
+
+			const editedId = document.getElementById('ID').value;
+			const editedCat = document.getElementById('category').value;
+			const editedComplete = document.getElementById('isComplete').value;
+			const editedTitle = document.getElementById('title').value;
+			const editedStartDate = document.getElementById('startDate').value;
+			const editedStartTime = document.getElementById('startTime').value;
+			const editedEndDate = document.getElementById('endDate').value;
+			const editedEndTime = document.getElementById('endTime').value;
+
+			const assign = Object.assign({}, editIndex, {
+				id: editedId,
+				category: editedCat,
+				isComplete: editedComplete,
+				title: editedTitle,
+				startDate: editedStartDate,
+				startTime: editedStartTime,
+				endDate: editedEndDate,
+				endTime: editedEndTime,
+			});
+
+			console.dir(assign);
+
+			// newStore = [
+			// 	...editStore.slice(0, editIndex),
+			// 	assign,
+			// 	...editStore.slice(editIndex + 1),
+			// ];
+
+			updateStore(newStore);
+			action.cb();
+			return null;
+
 		case 'delete':
 			const store = getStore();
 			const index = action.payload.index;

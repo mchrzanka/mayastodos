@@ -16,5 +16,3 @@
    ```
     npm run start
    ```
-
-yoohoo

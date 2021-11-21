@@ -2,11 +2,15 @@ import homePage from '../pages/home';
 import todoPage from '../pages/todo';
 import notFound from '../pages/pageNotFound';
 import deletePage from '../pages/delete/delete';
+import addPage from '../pages/add/add';
+import editPage from '../pages/edit/edit';
 
 const routes = {
 	'/': homePage,
 	'/todoapp': todoPage,
 	'/delete': deletePage,
+	'/add': addPage,
+	'/edit': editPage,
 	'/*': notFound,
 };
 

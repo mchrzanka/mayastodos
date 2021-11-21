@@ -13,26 +13,44 @@ import Router from '../routes/router';
 
 //Display the todo list on the todo page.
 const todoPage = function () {
-	const page = document.createElement('div');
-	page.className = 'container';
-
 	//add the todo ul component
 	const listContainer = todosUlList();
 	const todoList = getStore();
+	console.log(todoList);
 
-	//event handler to delete. We grab the id of the todo item.
+	//event handler function to delete. We grab the id of the todo item.
 	function onDeleteTodo(e) {
 		const todoId = { id: e.currentTarget.dataset.key };
 		Router('/delete', todoId);
 	}
 
-	//header ui
+	//event handler function to edit. We grab the id of the todo item.
+	function onEditTodo(e) {
+		const todoId = { id: e.currentTarget.dataset.key };
+		Router('/edit', todoId);
+	}
+
+	//event handler function to add. We grab the id of the todo item. Put a timer on it because function was running before dom was loaded.
+	setTimeout(onCreateNewTodo, 1000);
+
+	function onCreateNewTodo() {
+		const createNew = document.querySelector('.add-todo');
+		createNew.addEventListener('click', addTodo);
+	}
+
+	function addTodo(e) {
+		Router('/add');
+	}
+
+	//building ui
+	const page = document.createElement('div');
+	page.className = 'container';
 	const header = document.createElement('header');
 	const div = document.createElement('div');
 	div.className = 'add-button';
 	const h1 = todotitle('h1', 'todotitle');
 	const tag = tagline('p', 'todotagline');
-	const add = button('Create New', 'add-todo');
+	const addButton = button('Create New', 'add-todo');
 
 	//Check if there is any data. If there is, map it (creates a new array), and return each item to be placed into an li from the todo function.
 	if (todoList.length !== 0) {
@@ -44,6 +62,7 @@ const todoPage = function () {
 		const ul = listContainer.querySelector('#todos');
 		elements.forEach((item) => {
 			item.querySelector('#delete').addEventListener('click', onDeleteTodo);
+			item.querySelector('#edit').addEventListener('click', onEditTodo);
 			ul.append(item);
 		});
 	}
@@ -52,7 +71,7 @@ const todoPage = function () {
 	header.append(h1);
 	header.append(tag);
 	page.append(div);
-	div.append(add);
+	div.append(addButton);
 	page.append(listContainer);
 
 	return page;
