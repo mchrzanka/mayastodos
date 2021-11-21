@@ -15,8 +15,8 @@ import { getStore, updateStore } from './store';
 const reducer = function (action) {
 	switch (action.type) {
 		case 'add':
-			storeAdd = getStore();
-			newAddStore = [...storeAdd, action.payload];
+			const storeAdd = getStore();
+			const newAddStore = [...storeAdd, action.payload];
 			updateStore(newAddStore);
 			action.cb();
 			return null;
